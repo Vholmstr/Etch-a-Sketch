@@ -40,6 +40,7 @@ h1 {
 .square {
     flex-grow: 1;
     flex-basis: 25%;
+    background-color: white;
 }
 
 button {

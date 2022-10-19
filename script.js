@@ -1,7 +1,8 @@
 const container = document.querySelector("#grid-container");
 const resetButton = document.querySelector('#reset-button');
-const rainbowModeCheckbox = document.querySelector('#rainbow-mode');
+const rainbowmodeButton = document.querySelector('#rainbow-mode');
 let gridFull = false;
+let rainbowmode = false;
 
 function renderGrid (size, basis) {
     for (let i = 0; i < size; i++) {
@@ -9,7 +10,7 @@ function renderGrid (size, basis) {
         square.classList.add('square');
         square.style.flexBasis = basis + "%";
         square.addEventListener('mouseover', () => {
-            if (rainbowModeCheckbox.checked) {
+            if (rainbowmode) {
                 const rgbColor = RandomRGB();
                 square.style.backgroundColor = `rgb(${rgbColor[0]},${rgbColor[1]},${rgbColor[2]})`
             } else {

@@ -5,12 +5,33 @@ body {
     align-items: center;
     background-color: lightgray;
     gap: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    font-size: 100px;
+    margin: 0px;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
 }
 
 #grid-container {
     border: 1px solid grey;
-    width: 800px;
-    height: 800px;
+    width: 600px;
+    height: 600px;
     display: flex;
     flex-wrap: wrap;
     background-color: white;
@@ -21,8 +42,9 @@ body {
     flex-basis: 25%;
 }
 
-#reset-button {
-    width: 100px;
-    height: 30px;
-    font-weight: 900;
+button {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
 }

@@ -20,10 +20,14 @@ function renderGrid (size, basis) {
                 const rgbColor = RandomRGB();
                 square.style.backgroundColor = `rgb(${rgbColor[0]},${rgbColor[1]},${rgbColor[2]})`
             } else if (blackWhiteMode) {
-                square.style.backgroundColor = "black"; 
+                square.style.backgroundColor = "rgb(0, 0, 0)"; 
             } else if (darkenMode) {
-                const color = square.style.backgroundColor;
-                console.log(color);
+                if (!square.style.backgroundColor.includes("rgb")) {
+                    square.style.backgroundColor = "rgb(204, 204, 204)";
+                } else {
+                    const color = square.style.backgroundColor;
+                    square.style.backgroundColor = darkenByTenPercent(color);
+                }
             } else {
                 return;
             }
@@ -68,12 +72,15 @@ function RandomRGB() {
     return [r,g,b];
 }
 
-/* function darkenByTenPercent (color) {
-
-    const darkenedColor =  `rgb(${color},${color},${color})`;
+function darkenByTenPercent (color) {
+    let colorValues = color.slice(4, color.length - 1).split(', ');
+    for (let i = 0; i < colorValues.length; i++) {
+        const colorNum = Math.floor(parseInt(colorValues[i]) * 0.8);
+        colorValues[i] = colorNum;
+    }
+    const darkenedColor = `rgb(${colorValues[0]},${colorValues[1]},${colorValues[2]})`;
     return darkenedColor;
 }
- */
 
 createGrid(10);
 
